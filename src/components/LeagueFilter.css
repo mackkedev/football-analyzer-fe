@@ -1,0 +1,62 @@
+.league-filter {
+  display: flex;
+  gap: 6px;
+  padding: 4px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.league-filter::-webkit-scrollbar {
+  display: none;
+}
+
+.league-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.25s;
+  border: 1px solid transparent;
+}
+
+.league-tab:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+}
+
+.league-tab.active {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.league-tab.active .league-tab-name {
+  color: var(--league-accent, var(--accent-green));
+}
+
+.league-tab-flag {
+  font-size: 1.1rem;
+}
+
+.league-tab-short {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .league-tab-name {
+    display: none;
+  }
+  .league-tab-short {
+    display: inline;
+  }
+}

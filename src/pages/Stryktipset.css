@@ -1,0 +1,950 @@
+/* ==============================================================
+   Stryktipset — shared styles for coupon, draw detail, history
+   ============================================================== */
+
+/* ---- Top-of-page utility row ---- */
+
+.stryk-page-top {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.btn-history {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.btn-history:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+
+.btn-refresh {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 500;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-refresh:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+.btn-refresh:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ---- Coupon wrapper ---- */
+
+.coupon-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* ---- Coupon header ---- */
+
+.coupon-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  gap: 16px;
+}
+
+.coupon-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.coupon-subtitle {
+  margin-top: 5px;
+  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+}
+
+.coupon-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.draw-state-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 100px;
+  font-family: var(--font-mono);
+}
+.state-open {
+  background: var(--accent-green-dim);
+  color: var(--accent-green);
+  border: 1px solid rgba(0, 230, 118, 0.2);
+}
+.state-finalized {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+.close-time {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* ---- Events list ---- */
+
+.events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ---- Event row ---- */
+
+.event-row {
+  overflow: hidden;
+  border-left: 3px solid transparent;
+  transition: border-color 0.3s, transform 0.2s, border-color 0.2s;
+}
+.event-row:hover {
+  transform: translateX(2px);
+}
+.event-correct {
+  border-left-color: var(--accent-green) !important;
+}
+.event-wrong {
+  border-left-color: var(--accent-red) !important;
+}
+
+.event-main {
+  display: flex;
+}
+
+.event-num {
+  width: 52px;
+  min-width: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.02);
+  border-right: 1px solid var(--border);
+  padding: 20px 0;
+}
+
+.event-body {
+  flex: 1;
+  padding: 16px 18px;
+  min-width: 0;
+}
+
+/* ---- Event header ---- */
+
+.event-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.event-teams {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.team-home,
+.team-away {
+  font-size: 0.97rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.event-vs {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.event-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  flex-shrink: 0;
+}
+.league-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+.kickoff-time {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+}
+
+/* ---- Stats section ---- */
+
+.event-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.odds-row,
+.sf-row,
+.ai-row,
+.result-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 26px;
+}
+
+.stats-label {
+  width: 50px;
+  min-width: 50px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+}
+
+/* ---- Odds ---- */
+
+.odds-cells {
+  display: flex;
+  gap: 7px;
+}
+.odds-cell {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 4px 10px;
+}
+.odds-type {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.odds-val {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ---- Svenska Folket bar ---- */
+
+.sf-row {
+  align-items: flex-start;
+  padding-top: 2px;
+}
+
+.sf-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.sf-bar {
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  background: rgba(255, 255, 255, 0.04);
+}
+.sf-seg {
+  height: 100%;
+  transition: width 0.6s ease;
+}
+.sf-1 { background: var(--accent-blue); }
+.sf-x { background: var(--text-muted); opacity: 0.7; }
+.sf-2 { background: var(--accent-red); }
+
+.sf-labels {
+  display: flex;
+  gap: 14px;
+}
+.sf-lbl {
+  font-size: 0.68rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+.sf-lbl-1 { color: var(--accent-blue); }
+.sf-lbl-x { color: var(--text-secondary); }
+.sf-lbl-2 { color: var(--accent-red); }
+
+/* ---- AI prediction ---- */
+
+.ai-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.ai-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+.conf-high {
+  background: var(--accent-green-dim);
+  color: var(--accent-green);
+  border: 1px solid rgba(0, 230, 118, 0.2);
+}
+.conf-mid {
+  background: var(--accent-blue-dim);
+  color: var(--accent-blue);
+  border: 1px solid rgba(68, 138, 255, 0.2);
+}
+.conf-low {
+  background: var(--accent-amber-dim);
+  color: var(--accent-amber);
+  border: 1px solid rgba(255, 193, 7, 0.2);
+}
+.ai-pending {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.reasoning-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  color: var(--text-secondary);
+  font-size: 0.72rem;
+  font-family: var(--font-body);
+  padding: 4px 9px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+}
+.reasoning-toggle:hover {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+  background: rgba(255, 255, 255, 0.04);
+}
+.reasoning-text {
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  animation: fadeInUp 0.2s ease;
+}
+
+/* ---- Result ---- */
+
+.result-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.result-score {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.result-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+.result-correct {
+  background: var(--accent-green-dim);
+  color: var(--accent-green);
+}
+.result-wrong {
+  background: var(--accent-red-dim);
+  color: var(--accent-red);
+}
+.result-pending {
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ---- Loading skeleton ---- */
+
+.event-skeleton {
+  height: 145px;
+  border-radius: var(--radius-lg);
+}
+
+/* ---- Error state ---- */
+
+.coupon-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 64px 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+.btn-retry {
+  padding: 8px 20px;
+  border-radius: var(--radius-md);
+  background: var(--accent-green-dim);
+  color: var(--accent-green);
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid rgba(0, 230, 118, 0.2);
+  transition: all 0.2s;
+}
+.btn-retry:hover {
+  background: rgba(0, 230, 118, 0.18);
+}
+
+/* ======================================================
+   Draw detail page (StryktipsetDraw)
+   ====================================================== */
+
+.draw-detail-back {
+  margin-bottom: 24px;
+}
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.btn-back:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+
+/* ======================================================
+   History page (StryktipsetHistory)
+   ====================================================== */
+
+.history-hero {
+  margin-bottom: 28px;
+}
+.history-hero-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+.history-title {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+.history-subtitle {
+  margin-top: 6px;
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.history-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, border-color 0.2s;
+}
+.history-card:hover {
+  transform: translateX(4px);
+  border-color: var(--border-strong);
+  color: inherit;
+}
+
+.history-draw-info {
+  min-width: 120px;
+}
+.history-draw-number {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.history-draw-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.history-draw-date {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.history-accuracy {
+  display: flex;
+  align-items: center;
+}
+.accuracy-chip {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+.accuracy-chip.acc-good {
+  background: var(--accent-green-dim);
+  color: var(--accent-green);
+}
+.accuracy-chip.acc-mid {
+  background: var(--accent-amber-dim);
+  color: var(--accent-amber);
+}
+.accuracy-chip.acc-low {
+  background: var(--accent-red-dim);
+  color: var(--accent-red);
+}
+.accuracy-chip.acc-none {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-muted);
+}
+
+.history-chevron {
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: transform 0.2s, color 0.2s;
+}
+.history-card:hover .history-chevron {
+  transform: translateX(4px);
+  color: var(--text-secondary);
+}
+
+.history-empty {
+  text-align: center;
+  padding: 64px 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ======================================================
+   Coupon badge
+   ====================================================== */
+
+.coupon-no-sign {
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.coupon-sign {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  transition: background 0.2s, color 0.2s;
+}
+
+.coupon-single {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+}
+
+.coupon-halv {
+  background: var(--accent-amber-dim);
+  color: var(--accent-amber);
+  border: 1px solid rgba(255, 193, 7, 0.25);
+  padding: 4px 8px;
+  gap: 2px;
+}
+
+.coupon-halv-part {
+  font-weight: 800;
+}
+
+.coupon-halv-sep {
+  opacity: 0.4;
+  margin: 0 1px;
+  font-weight: 400;
+}
+
+.coupon-covered {
+  background: var(--accent-green-dim) !important;
+  color: var(--accent-green) !important;
+  border-color: rgba(0, 230, 118, 0.2) !important;
+}
+
+.coupon-missed {
+  background: var(--accent-red-dim) !important;
+  color: var(--accent-red) !important;
+  border-color: rgba(255, 82, 82, 0.2) !important;
+}
+
+/* Coupon row inside event stats — same flex pattern as other rows */
+.coupon-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-height: 26px;
+}
+
+/* Content wrapper inside the coupon row (badge + value badge + exclusivity + toggle) */
+.coupon-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ---- Value badge (SKRÄLL / VÄRDE) ---- */
+
+.value-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.value-skrall {
+  background: rgba(255, 82, 82, 0.12);
+  color: var(--accent-red);
+  border: 1px solid rgba(255, 82, 82, 0.25);
+}
+
+.value-varde {
+  background: var(--accent-amber-dim);
+  color: var(--accent-amber);
+  border: 1px solid rgba(255, 193, 7, 0.25);
+}
+
+/* Jackpot exclusivity inline stat */
+.coupon-exclusivity {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Coupon reasoning expandable panel */
+.coupon-analysis-text {
+  margin-top: 4px;
+  padding: 12px 14px;
+  background: rgba(255, 193, 7, 0.03);
+  border: 1px solid rgba(255, 193, 7, 0.15);
+  border-left: 3px solid rgba(255, 193, 7, 0.4);
+  border-radius: var(--radius-md);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  font-style: italic;
+  animation: fadeInUp 0.2s ease;
+}
+
+/* Halvgardering row amber border */
+.event-halv {
+  border-left-color: rgba(255, 193, 7, 0.55) !important;
+}
+
+/* ======================================================
+   Coupon summary bar
+   ====================================================== */
+
+.coupon-summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  margin-bottom: 16px;
+  background: rgba(255, 193, 7, 0.04);
+  border: 1px solid rgba(255, 193, 7, 0.18);
+  border-radius: var(--radius-md);
+  font-size: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.coupon-summary-empty {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: var(--border);
+  color: var(--text-muted);
+  justify-content: center;
+  font-style: italic;
+}
+
+.coupon-summary-partial {
+  border-color: rgba(255, 82, 82, 0.3);
+  background: rgba(255, 82, 82, 0.04);
+}
+
+.coupon-summary-label {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--accent-amber);
+  letter-spacing: 0.02em;
+}
+
+.coupon-summary-dot {
+  color: var(--text-muted);
+}
+
+.coupon-summary-stat {
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.coupon-summary-warn {
+  padding: 2px 8px;
+  border-radius: 100px;
+  background: var(--accent-red-dim);
+  color: var(--accent-red);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+/* Second-line value breakdown inside summary bar */
+.coupon-summary-values {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-basis: 100%;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 193, 7, 0.1);
+  margin-top: 2px;
+}
+
+.coupon-summary-skrall {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-red);
+}
+
+.coupon-summary-varde {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-amber);
+}
+
+/* ======================================================
+   Coupon overview card
+   ====================================================== */
+
+.coupon-overview {
+  margin-top: 24px;
+  padding: 20px 24px;
+}
+
+.coupon-overview-title {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.coupon-overview-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.coupon-overview-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 8px;
+  border-left: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s;
+}
+
+.coupon-overview-row:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.coupon-overview-row.ov-halv {
+  border-left-color: rgba(255, 193, 7, 0.4);
+  padding-left: 10px;
+}
+
+.ov-num {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  min-width: 28px;
+}
+
+.ov-teams {
+  flex: 1;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ov-halv-label {
+  font-size: 0.6rem;
+  color: rgba(255, 193, 7, 0.55);
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+/* ======================================================
+   Responsive
+   ====================================================== */
+
+@media (max-width: 640px) {
+  .coupon-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .coupon-meta {
+    align-items: flex-start;
+  }
+
+  .event-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .event-meta {
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .event-num {
+    width: 38px;
+    min-width: 38px;
+    font-size: 1rem;
+  }
+  .event-body {
+    padding: 12px 12px;
+  }
+
+  .odds-cells {
+    flex-wrap: wrap;
+  }
+
+  .history-card {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .history-draw-date {
+    flex-basis: 100%;
+  }
+  .history-hero-inner {
+    flex-direction: column;
+  }
+}
